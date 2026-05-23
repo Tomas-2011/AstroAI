@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 
@@ -165,4 +166,173 @@ Precisión:
 
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>🌌 AstroAI</title>
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}"
+>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 class="title">
+        🌌 AstroAI
+    </h1>
+
+    <p class="subtitle">
+        Reconocimiento espacial con Inteligencia Artificial
+    </p>
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <input
+            type="file"
+            name="image"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+
+            🔍 Analizar objeto espacial
+
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/planets">
+
+        <button>
+
+            🪐 Explorar Sistema Solar
+
+        </button>
+
+    </a>
+
+
+{% if image_name %}
+
+<div class="result">
+
+<br>
+
+<img
+src="{{ url_for('uploaded_file', filename=image_name) }}"
+alt="Objeto espacial"
+class="planet-image"
+>
+
+<h2>
+
+Objeto detectado:
+
+</h2>
+
+<h1 class="planet-name">
+
+{{ planet_name }}
+
+</h1>
+
+<p>
+
+Precisión:
+
+{{ (confidence_score*100)|round(2) }}%
+
+</p>
+
+<div class="info">
+
+<p>
+
+<strong>📖 Descripción:</strong>
+
+{{ info.description }}
+
+</p>
+
+<p>
+
+<strong>🎨 Color:</strong>
+
+{{ info.color }}
+
+</p>
+
+<p>
+
+<strong>🌍 Gravedad:</strong>
+
+{{ info.gravity }}
+
+</p>
+
+<p>
+
+<strong>🌡️ Temperatura:</strong>
+
+{{ info.temperature }}
+
+</p>
+
+<p>
+
+<strong>☀️ Distancia:</strong>
+
+{{ info.distance }}
+
+</p>
+
+<p>
+
+<strong>🛰️ Duración orbital:</strong>
+
+{{ info.year }}
+
+</p>
+
+<p>
+
+<strong>✨ Curiosidad:</strong>
+
+{{ info.fun_fact }}
+
+</p>
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+>>>>>>> 342ab62f66c8442079b2b38b48682d1efd38d8e2
 </html>
