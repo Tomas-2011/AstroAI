@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+🪐 Explorar Sistema Solar
+</title>
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}"
+>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+🪐 Explorar Sistema Solar
+</h1>
+
+<div class="planet-grid">
+
+{% for name,data in planets.items() %}
+
+<div class="planet-card">
+
+<img
+src="{{ url_for('static', filename='planets/' + name + '.jpg') }}"
+alt="{{name}}"
+class="planet-photo"
+>
+
+<h2>
+{{name}}
+</h2>
+
+<p>
+{{data.description}}
+</p>
+
+<p>
+🌍 Gravedad:
+{{data.gravity}}
+</p>
+
+<p>
+🌡️ Temperatura:
+{{data.temperature}}
+</p>
+
+<p>
+☀️ Distancia:
+{{data.distance}}
+</p>
+
+<p>
+✨ {{data.fun_fact}}
+</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<br>
+
+<a href="/">
+
+<button>
+
+⬅ Volver
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+</html>
