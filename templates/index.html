@@ -1,338 +1,118 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>🌌 AstroAI</title>
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
-
-<title>🌌 AstroAI</title>
-
-<link
-rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}"
->
-
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1 class="title">
-        🌌 AstroAI
-    </h1>
+        <h1 class="title">🌌 AstroAI</h1>
 
-    <p class="subtitle">
-        Reconocimiento espacial con Inteligencia Artificial
-    </p>
+        <p class="subtitle">
+            Reconocimiento espacial con Inteligencia Artificial
+        </p>
 
-    <form
-        method="POST"
-        enctype="multipart/form-data"
-    >
+        <form method="POST" enctype="multipart/form-data">
 
-        <input
-            type="file"
-            name="image"
-            required
-        >
+            <input
+                type="file"
+                name="image"
+                required
+            >
 
-        <br><br>
+            <br><br>
 
-        <button type="submit">
+            <button type="submit">
+                🔍 Analizar objeto espacial
+            </button>
 
-            🔍 Analizar objeto espacial
+        </form>
 
-        </button>
+        <br>
 
-    </form>
+        <a href="/planets">
+            <button type="button">
+                🪐 Explorar Sistema Solar
+            </button>
+        </a>
 
-    <br>
+        {% if image_name %}
 
-    <a href="/planets">
+        <div class="result">
 
-        <button>
+            <br>
 
-            🪐 Explorar Sistema Solar
+            <img
+                src="{{ url_for('uploaded_file', filename=image_name) }}"
+                alt="Objeto espacial"
+                class="planet-image"
+            >
 
-        </button>
+            <h2>Objeto detectado:</h2>
 
-    </a>
+            <h1 class="planet-name">
+                {{ planet_name }}
+            </h1>
 
+            <p>
+                Precisión:
+                {{ (confidence_score * 100)|round(2) }}%
+            </p>
 
-{% if image_name %}
+            <div class="info">
 
-<div class="result">
+                <p>
+                    <strong>📖 Descripción:</strong>
+                    {{ info.description }}
+                </p>
 
-<br>
+                <p>
+                    <strong>🎨 Color:</strong>
+                    {{ info.color }}
+                </p>
 
-<img
-src="{{ url_for('uploaded_file', filename=image_name) }}"
-alt="Objeto espacial"
-class="planet-image"
->
+                <p>
+                    <strong>🌍 Gravedad:</strong>
+                    {{ info.gravity }}
+                </p>
 
-<h2>
+                <p>
+                    <strong>🌡️ Temperatura:</strong>
+                    {{ info.temperature }}
+                </p>
 
-Objeto detectado:
+                <p>
+                    <strong>☀️ Distancia:</strong>
+                    {{ info.distance }}
+                </p>
 
-</h2>
+                <p>
+                    <strong>🛰️ Duración orbital:</strong>
+                    {{ info.year }}
+                </p>
 
-<h1 class="planet-name">
+                <p>
+                    <strong>✨ Curiosidad:</strong>
+                    {{ info.fun_fact }}
+                </p>
 
-{{ planet_name }}
+            </div>
 
-</h1>
+        </div>
 
-<p>
+        {% endif %}
 
-Precisión:
-
-{{ (confidence_score*100)|round(2) }}%
-
-</p>
-
-<div class="info">
-
-<p>
-
-<strong>📖 Descripción:</strong>
-
-{{ info.description }}
-
-</p>
-
-<p>
-
-<strong>🎨 Color:</strong>
-
-{{ info.color }}
-
-</p>
-
-<p>
-
-<strong>🌍 Gravedad:</strong>
-
-{{ info.gravity }}
-
-</p>
-
-<p>
-
-<strong>🌡️ Temperatura:</strong>
-
-{{ info.temperature }}
-
-</p>
-
-<p>
-
-<strong>☀️ Distancia:</strong>
-
-{{ info.distance }}
-
-</p>
-
-<p>
-
-<strong>🛰️ Duración orbital:</strong>
-
-{{ info.year }}
-
-</p>
-
-<p>
-
-<strong>✨ Curiosidad:</strong>
-
-{{ info.fun_fact }}
-
-</p>
-
-</div>
-
-</div>
-
-{% endif %}
-
-</div>
+    </div>
 
 </body>
-
-=======
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
-
-<title>🌌 AstroAI</title>
-
-<link
-rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}"
->
-
-</head>
-
-<body>
-
-<div class="container">
-
-    <h1 class="title">
-        🌌 AstroAI
-    </h1>
-
-    <p class="subtitle">
-        Reconocimiento espacial con Inteligencia Artificial
-    </p>
-
-    <form
-        method="POST"
-        enctype="multipart/form-data"
-    >
-
-        <input
-            type="file"
-            name="image"
-            required
-        >
-
-        <br><br>
-
-        <button type="submit">
-
-            🔍 Analizar objeto espacial
-
-        </button>
-
-    </form>
-
-    <br>
-
-    <a href="/planets">
-
-        <button>
-
-            🪐 Explorar Sistema Solar
-
-        </button>
-
-    </a>
-
-
-{% if image_name %}
-
-<div class="result">
-
-<br>
-
-<img
-src="{{ url_for('uploaded_file', filename=image_name) }}"
-alt="Objeto espacial"
-class="planet-image"
->
-
-<h2>
-
-Objeto detectado:
-
-</h2>
-
-<h1 class="planet-name">
-
-{{ planet_name }}
-
-</h1>
-
-<p>
-
-Precisión:
-
-{{ (confidence_score*100)|round(2) }}%
-
-</p>
-
-<div class="info">
-
-<p>
-
-<strong>📖 Descripción:</strong>
-
-{{ info.description }}
-
-</p>
-
-<p>
-
-<strong>🎨 Color:</strong>
-
-{{ info.color }}
-
-</p>
-
-<p>
-
-<strong>🌍 Gravedad:</strong>
-
-{{ info.gravity }}
-
-</p>
-
-<p>
-
-<strong>🌡️ Temperatura:</strong>
-
-{{ info.temperature }}
-
-</p>
-
-<p>
-
-<strong>☀️ Distancia:</strong>
-
-{{ info.distance }}
-
-</p>
-
-<p>
-
-<strong>🛰️ Duración orbital:</strong>
-
-{{ info.year }}
-
-</p>
-
-<p>
-
-<strong>✨ Curiosidad:</strong>
-
-{{ info.fun_fact }}
-
-</p>
-
-</div>
-
-</div>
-
-{% endif %}
-
-</div>
-
-</body>
-
->>>>>>> 342ab62f66c8442079b2b38b48682d1efd38d8e2
 </html>
